@@ -17,7 +17,7 @@ export const ResturantCard = styled(Card)`
 `;
 export const ResturantCardCover = styled(Card.Cover)`
   background-color: white;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   padding: ${(props) => props.theme.space.at(3)};
 `;
 export const Rating = styled.View`

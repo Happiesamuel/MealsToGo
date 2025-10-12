@@ -6,4 +6,5 @@ export interface ResturantInfo {
   isOpeningNow: boolean;
   rating: number;
   isClosedTemporarily: boolean;
+  id: number;
 }

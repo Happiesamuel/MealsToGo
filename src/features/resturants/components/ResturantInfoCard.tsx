@@ -30,7 +30,10 @@ export default function ResturantInfoCard({
     rating,
     isClosedTemporarily,
   } = resturant;
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  const ratingArray = Array.from(
+    { length: Math.floor(rating) },
+    (v, i) => i + 1
+  );
   return (
     <ResturantCard elevation={5}>
       <ResturantCardCover key={name} source={{ uri: photos.at(0) }} />

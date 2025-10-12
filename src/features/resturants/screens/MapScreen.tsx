@@ -1,10 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
+import { SafeArea } from "../components/utility/safe-area.component";
 
 export default function MapScreen() {
   return (
-    <View>
+    <SafeArea>
       <Text>MapScreen</Text>
-    </View>
+    </SafeArea>
   );
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a43e3799-fe60-4d18-b645-5b313defc605" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.yarn/install-state.gz" beforeDir="false" afterPath="$PROJECT_DIR$/.yarn/install-state.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCardStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCardStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/resturants/screens/MapScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/screens/MapScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/resturants/screens/ResturantScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/screens/ResturantScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/resturants/screens/SettingsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/screens/SettingsScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="33gqvfmvQtYFzvJkFCr28IUbCVa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a43e3799-fe60-4d18-b645-5b313defc605" name="Default Changelist" comment="" />
+      <created>1759749299607</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759749299607</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="110" y="120" width="1146" height="528" key="AVDManager" timestamp="1760284980846">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="110" y="120" width="1146" height="528" key="AVDManager/0.0.1366.768/-1366.0.1366.768@0.0.1366.768" timestamp="1760001246430" />
+    <state x="110" y="120" width="1146" height="528" key="AVDManager/0.0.1366.768@0.0.1366.768" timestamp="1760284980846" />
+    <state x="184" y="13" key="SettingsEditor" timestamp="1756221654614">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="184" y="13" key="SettingsEditor/0.0.1366.768" timestamp="1756221654614" />
+  </component>
+</project>
