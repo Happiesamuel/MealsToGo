@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FlatListProps, View, Text } from "react-native";
+import { FlatListProps, View, Text, TouchableOpacity } from "react-native";
 import { ActivityIndicator, Searchbar } from "react-native-paper";
 import ResturantInfoCard from "../components/ResturantInfoCard";
 import styled from "styled-components/native";
@@ -7,6 +7,8 @@ import { ResturantInfo } from "../../../../model";
 import { SafeArea } from "../components/utility/safe-area.component";
 import { useRestaurants } from "../../../services/resturant/resturant.context";
 import SearchComponent from "../components/SearchComponent";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 const ResturantFlatList = styled.FlatList.attrs({
   contentContainerStyle: {
@@ -21,8 +23,13 @@ const ResturantFlatList = styled.FlatList.attrs({
 const Spinner = styled(ActivityIndicator)`
   flex: 1;
 `;
-
+export type ResturantStackParamList = {
+  Resturant: undefined;
+  ResturantDetail: { resturant: ResturantInfo };
+};
 export default function ResturantScreen() {
+  const navigation =
+    useNavigation<StackNavigationProp<ResturantStackParamList, "Resturant">>();
   const { restaurants, isLoading, err } = useRestaurants();
 
   // const resturant = [
@@ -88,7 +95,15 @@ export default function ResturantScreen() {
         <ResturantFlatList
           data={restaurants}
           keyExtractor={(item) => item.name}
-          renderItem={({ item }) => <ResturantInfoCard resturant={item} />}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("ResturantDetail", { resturant: item })
+              }
+            >
+              <ResturantInfoCard resturant={item} />
+            </TouchableOpacity>
+          )}
         />
       )}
     </SafeArea>

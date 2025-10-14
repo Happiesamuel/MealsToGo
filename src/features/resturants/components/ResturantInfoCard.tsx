@@ -16,11 +16,13 @@ import {
 } from "./ResturantInfoCardStyles";
 import { ResturantInfo } from "../../../../model";
 
+
 export default function ResturantInfoCard({
   resturant,
 }: {
   resturant: ResturantInfo;
 }) {
+
   const {
     name,
     icon,
@@ -29,13 +31,17 @@ export default function ResturantInfoCard({
     isOpeningNow,
     rating,
     isClosedTemporarily,
+    placeId,
   } = resturant;
   const ratingArray = Array.from(
     { length: Math.floor(rating) },
     (v, i) => i + 1
   );
   return (
-    <ResturantCard elevation={5}>
+    <ResturantCard
+     
+      elevation={5}
+    >
       <ResturantCardCover key={name} source={{ uri: photos.at(0) }} />
       <Info>
         <Text variant="label">{name}</Text>
@@ -43,7 +49,12 @@ export default function ResturantInfoCard({
         <Icons>
           <Rating>
             {ratingArray.map((_, i) => (
-              <SvgXml key={i} xml={star} width={20} height={20} />
+              <SvgXml
+                key={`star-${placeId}-${i}`}
+                xml={star}
+                width={20}
+                height={20}
+              />
             ))}
           </Rating>
 

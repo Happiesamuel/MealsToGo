@@ -14,10 +14,11 @@ export const Info = styled.View`
 
 export const ResturantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
+  border-radius: 8px;
 `;
 export const ResturantCardCover = styled(Card.Cover)`
   background-color: white;
-  /* border-radius: 2px; */
+  border-radius: 4px;
   padding: ${(props) => props.theme.space.at(3)};
 `;
 export const Rating = styled.View`

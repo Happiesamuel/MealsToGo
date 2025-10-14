@@ -30,23 +30,31 @@ export default function LocationContextProvider({
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState<null | string>(null);
   async function onSearch(query: keyof typeof locations) {
-    try {
-      const key =
-        (query.toLowerCase() as keyof typeof locations) || "san francisco";
-      if (!key.length) {
-        return;
-      }
-      setIsLoading(true);
-      setKeyword(key);
-      const res = await locationRequest(key);
-      setLocation(locationTransform(res));
-      console.log(location);
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-      setErr(error as any);
-    }
+    const key =
+      (query.toLowerCase() as keyof typeof locations) || "san francisco";
+
+    setIsLoading(true);
+    setKeyword(key);
   }
+
+  useEffect(() => {
+    if (!keyword.length) {
+      return;
+    }
+
+    async function onSearch() {
+      try {
+        const res = await locationRequest(keyword);
+        setLocation(locationTransform(res));
+        console.log(location);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setErr(error as any);
+      }
+    }
+    onSearch();
+  }, [keyword]);
 
   return (
     <LocationContext.Provider

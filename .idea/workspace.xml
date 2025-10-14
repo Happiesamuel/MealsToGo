@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43e3799-fe60-4d18-b645-5b313defc605" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.yarn/install-state.gz" beforeDir="false" afterPath="$PROJECT_DIR$/.yarn/install-state.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCardStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/components/ResturantInfoCardStyles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/resturants/screens/MapScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/screens/MapScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/resturants/screens/ResturantScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/screens/ResturantScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/resturants/screens/SettingsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/screens/SettingsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/resturants/components/SearchComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/resturants/components/SearchComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/location/location.context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/location/location.context.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +45,11 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="110" y="120" width="1146" height="528" key="AVDManager" timestamp="1760284980846">
+    <state x="110" y="120" width="1146" height="528" key="AVDManager" timestamp="1760402304027">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="110" y="120" width="1146" height="528" key="AVDManager/0.0.1366.768/-1366.0.1366.768@0.0.1366.768" timestamp="1760001246430" />
-    <state x="110" y="120" width="1146" height="528" key="AVDManager/0.0.1366.768@0.0.1366.768" timestamp="1760284980846" />
+    <state x="110" y="120" width="1146" height="528" key="AVDManager/0.0.1366.768@0.0.1366.768" timestamp="1760402304027" />
     <state x="184" y="13" key="SettingsEditor" timestamp="1756221654614">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

@@ -7,4 +7,5 @@ export interface ResturantInfo {
   rating: number;
   isClosedTemporarily: boolean;
   id: number;
+  placeId: string;
 }
