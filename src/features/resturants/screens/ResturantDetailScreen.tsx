@@ -17,50 +17,54 @@ type ResturantDetailRouteProp = RouteProp<
 export default function ResturantDetailScreen() {
   const route = useRoute<ResturantDetailRouteProp>();
   const { resturant } = route.params;
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
-  const handlePress = () => setExpanded(!expanded);
+  const accordion = [
+    {
+      title: "Breakfast",
+      icon: "bread-slice",
+      list: ["Eggs Benedict", "Classic Breakfast"],
+    },
+    {
+      title: "Lunch",
+      icon: "hamburger",
+      list: ["Burger wf Fries", "Steak Sandwich", "Mushroom Soup"],
+    },
+    {
+      title: "Dinner",
+      icon: "food-variant",
+      list: [
+        "Spaghetti Bolognese",
+        "Veal Cutlet with Chicken Mushroom Rotini",
+        "Steak Frites",
+      ],
+    },
+    {
+      title: "Drinks",
+      icon: "cup",
+      list: ["Coffee", "Tea", "Coke", "Modelo", "Fanta"],
+    },
+  ];
+
+  const handlePress = (id: string) => setExpanded(id === expanded ? null : id);
   return (
     <SafeArea>
-      <ScrollView>
       <ResturantInfoCard resturant={resturant} />
-        {" "}
-        <List.Section title="Accordions">
-          <List.Accordion
-            title="Uncontrolled Accordion"
-            left={(props) => <List.Icon {...props} icon="folder" />}
-          >
-            <List.Item title="First item" />
-            <List.Item title="Second item" />
-          </List.Accordion>
-
-          <List.Accordion
-            title="Controlled Accordion"
-            left={(props) => <List.Icon {...props} icon="folder" />}
-            expanded={expanded}
-            onPress={handlePress}
-          >
-            <List.Item title="First item" />
-            <List.Item title="Second item" />
-          </List.Accordion>
-          <List.Accordion
-            title="Controlled Accordion"
-            left={(props) => <List.Icon {...props} icon="folder" />}
-            expanded={expanded}
-            onPress={handlePress}
-          >
-            <List.Item title="First item" />
-            <List.Item title="Second item" />
-          </List.Accordion>
-          <List.Accordion
-            title="Controlled Accordion"
-            left={(props) => <List.Icon {...props} icon="folder" />}
-            expanded={expanded}
-            onPress={handlePress}
-          >
-            <List.Item title="First item" />
-            <List.Item title="Second item" />
-          </List.Accordion>
+      <ScrollView>
+        <List.Section>
+          {accordion.map((acc) => (
+            <List.Accordion
+              title={acc.title}
+              key={acc.title}
+              left={(props) => <List.Icon {...props} icon={acc.icon} />}
+              expanded={acc.title === expanded}
+              onPress={() => handlePress(acc.title)}
+            >
+              {acc.list.map((list) => (
+                <List.Item key={list} title={list} />
+              ))}
+            </List.Accordion>
+          ))}
         </List.Section>
       </ScrollView>
     </SafeArea>
