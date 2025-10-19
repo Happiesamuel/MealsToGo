@@ -3,6 +3,7 @@ import { Searchbar } from "react-native-paper";
 import { useEffect, useState } from "react";
 import { useLocation } from "../../../services/location/location.context";
 import { locations } from "../../../services/location/location.mock";
+import { FontAwesome } from "@expo/vector-icons";
 const Seaarch = styled.View`
   padding: 10px ${(props) => props.theme.space.at(3)} 10px;
 `;
@@ -10,13 +11,27 @@ const Search = styled(Searchbar)`
   border-radius: 8px;
   padding: 0px !important;
 `;
-export default function SearchComponent() {
+export default function SearchComponent({
+  onToogle,
+  isToggled,
+}: {
+  onToogle(): void;
+  isToggled: boolean;
+}) {
   const { search, keyword } = useLocation();
   const [searchQuery, setSearchQuery] = useState(keyword);
 
+  useEffect(
+    function () {
+      setSearchQuery(keyword);
+    },
+    [keyword]
+  );
   return (
     <Seaarch>
       <Search
+        icon={isToggled ? "heart" : "heart-outline"}
+        onIconPress={() => onToogle()}
         placeholder="Search for a location"
         onChangeText={(text) => {
           setSearchQuery(text as keyof typeof locations);

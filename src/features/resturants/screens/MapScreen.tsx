@@ -5,11 +5,28 @@ import { useEffect, useState } from "react";
 import MapCallout from "../components/MapCallout";
 import SearchMap from "../../map/SearchMap";
 import styled from "styled-components/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { ResturantInfo } from "../../../../model";
+import { NavigatorScreenParams } from "@react-navigation/native";
 const Map = styled(MapView)`
   height: 100%;
   width: 100%;
 `;
-export default function MapScreen() {
+type ResturantStackParamList = {
+  Resturant: undefined;
+  ResturantDetail: { resturant: ResturantInfo };
+};
+
+type RootStackParamList = {
+  Resturant: NavigatorScreenParams<ResturantStackParamList>;
+  Map: undefined;
+};
+type MapScreenNavigationProp = StackNavigationProp<RootStackParamList, "Map">;
+
+type Props = {
+  navigation: MapScreenNavigationProp;
+};
+export default function MapScreen({ navigation }: Props) {
   const { location } = useLocation();
   const { restaurants } = useRestaurants();
   const [latDelta, setLatDelta] = useState(0);
@@ -45,9 +62,16 @@ export default function MapScreen() {
                 longitude: restaurant.geometry.location.lng,
               }}
             >
-              {/* <Callout> */}
+              <Callout
+                onPress={() =>
+                  navigation.navigate("Resturant", {
+                    screen: "ResturantDetail",
+                    params: { resturant: restaurant },
+                  })
+                }
+              >
                 <MapCallout resturant={restaurant} />
-              {/* </Callout> */}
+              </Callout>
             </Marker>
           );
         })}

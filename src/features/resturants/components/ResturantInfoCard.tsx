@@ -1,5 +1,3 @@
-import React from "react";
-
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
@@ -15,14 +13,13 @@ import {
   SectionEnd,
 } from "./ResturantInfoCardStyles";
 import { ResturantInfo } from "../../../../model";
-
+import Favourites from "../../../components/typography/favourites/Favourites";
 
 export default function ResturantInfoCard({
   resturant,
 }: {
   resturant: ResturantInfo;
 }) {
-
   const {
     name,
     icon,
@@ -38,10 +35,8 @@ export default function ResturantInfoCard({
     (v, i) => i + 1
   );
   return (
-    <ResturantCard
-     
-      elevation={5}
-    >
+    <ResturantCard elevation={5}>
+      <Favourites restaurant={resturant} />
       <ResturantCardCover key={name} source={{ uri: photos.at(0) }} />
       <Info>
         <Text variant="label">{name}</Text>
