@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import { TextInput } from "react-native-paper";
 import { useAuth } from "../../../services/auth/AuthContext";
-import { AccountButton } from "../components/AccountStyles";
+import {
+  AccountButton,
+  AuthInput,
+  ErrorContainer,
+} from "../components/AccountStyles";
 import { Text } from "../../../components/typography/text.component";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { onLogin, isLoading, error } = useAuth();
+
   async function login() {
     if (!email || !password) return;
     await onLogin(email, password);
   }
   return (
-    <Layout>
-      <TextInput
+    <Layout screen="Login">
+      <AuthInput
         label="Email"
         value={email}
         onChangeText={(text) => setEmail(text)}
@@ -24,7 +28,7 @@ export default function LoginScreen() {
         secureTextEntry
         autoCapitalize="none"
       />
-      <TextInput
+      <AuthInput
         value={password}
         label={"Password"}
         textContentType="password"
@@ -32,7 +36,11 @@ export default function LoginScreen() {
         autoCapitalize="none"
         onChangeText={(text) => setPassword(text)}
       />
-      {error && <Text variant="error">{error}</Text>}
+      {error && (
+        <ErrorContainer>
+          <Text variant="error">{error}</Text>
+        </ErrorContainer>
+      )}
       <AccountButton
         mode="contained"
         onPress={login}

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { ResturantInfo } from "../../../model";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { loginRequest } from "./AuthService";
+import { loginRequest, registerRequest } from "./AuthService";
 import { UserCredential } from "firebase/auth";
 
 const defaultValue = {
@@ -9,6 +9,7 @@ const defaultValue = {
   isLoading: false,
   error: null,
   onLogin: () => {},
+  onRegister: () => {},
   isAuthenicated: false,
 };
 
@@ -17,6 +18,7 @@ const AuthContext = createContext<{
   user: null | UserCredential;
   error: string | null;
   onLogin(email: string, password: string): void;
+  onRegister(email: string, password: string, repeatedPasword: string): void;
   isAuthenicated: boolean;
 }>(defaultValue);
 export default function AuthContextProvider({
@@ -40,9 +42,35 @@ export default function AuthContextProvider({
       setError(err.message);
     }
   }
+  async function onRegister(
+    email: string,
+    password: string,
+    repeatedPassword: string
+  ) {
+    try {
+      if (password !== repeatedPassword) {
+        throw new Error("Error: Password do not match ");
+      }
+      setIsLoading(true);
+      const req = await registerRequest(email, password);
+      setUser(req);
+      setIsLoading(false);
+    } catch (error) {
+      const err = error as Error;
+      setIsLoading(false);
+      setError(err.message);
+    }
+  }
   return (
     <AuthContext.Provider
-      value={{ user, isLoading, error, onLogin, isAuthenicated: !!user }}
+      value={{
+        user,
+        isLoading,
+        error,
+        onLogin,
+        isAuthenicated: !!user,
+        onRegister,
+      }}
     >
       {children}
     </AuthContext.Provider>

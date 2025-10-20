@@ -5,7 +5,7 @@ import { AccountButton } from "../components/AccountStyles";
 export default function AccountScreen() {
   const navigation = useNavigation();
   return (
-    <Layout>
+    <Layout screen="Account">
       <AccountButton
         mode="contained"
         onPress={() => (navigation as any).navigate("Login")}

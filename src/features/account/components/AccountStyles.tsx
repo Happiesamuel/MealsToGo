@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
-import { Button } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 
 export const AccountBackground = styled.ImageBackground.attrs({
   source: require("../../../../assets/bg.jpg"),
@@ -9,7 +9,7 @@ export const AccountBackground = styled.ImageBackground.attrs({
   background-color: #ddd;
   align-items: center;
   justify-content: center;
-  flex-direction:row;
+  flex-direction: row;
 `;
 export const AccountCover = styled.View`
   position: absolute;
@@ -17,16 +17,33 @@ export const AccountCover = styled.View`
   height: 100%;
   background-color: rgba(255, 255, 255, 0.3);
 `;
+export const AccountContent = styled.View`
+  width: 100%;
+  align-items: center;
+  gap: 15px;
+`;
+export const Title = styled.Text`
+  font-size: 30px;
+`;
 export const AccountContainer = styled.View`
   background-color: rgba(255, 255, 255, 0.7);
   padding: ${(props) => props.theme.space.at(4)};
-  margin-top: ${(props) => props.theme.space.at(2)};
-  width: 70%;
+  /* margin-top: ${(props) => props.theme.space.at(2)}; */
+  width: 85%;
   gap: 10px;
+`;
+export const AuthInput = styled(TextInput)`
+  width: 100%;
+`;
+export const ErrorContainer = styled.View`
+  max-width: 300px;
+  align-items: center;
+  align-self: center;
+  margin: ${(props) => props.theme.space.at(2)} 0px;
 `;
 export const AccountButton = styled(Button).attrs({
   color: colors.brand.primary,
 })`
   border-radius: 6px;
- padding: ${(props) => props.theme.space.at(1)};
+  padding: ${(props) => props.theme.space.at(1)};
 `;
