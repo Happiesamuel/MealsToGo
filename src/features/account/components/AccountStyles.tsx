@@ -1,0 +1,32 @@
+import styled from "styled-components/native";
+import { colors } from "../../../infrastructure/theme/colors";
+import { Button } from "react-native-paper";
+
+export const AccountBackground = styled.ImageBackground.attrs({
+  source: require("../../../../assets/bg.jpg"),
+})`
+  flex: 1;
+  background-color: #ddd;
+  align-items: center;
+  justify-content: center;
+  flex-direction:row;
+`;
+export const AccountCover = styled.View`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+`;
+export const AccountContainer = styled.View`
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: ${(props) => props.theme.space.at(4)};
+  margin-top: ${(props) => props.theme.space.at(2)};
+  width: 70%;
+  gap: 10px;
+`;
+export const AccountButton = styled(Button).attrs({
+  color: colors.brand.primary,
+})`
+  border-radius: 6px;
+ padding: ${(props) => props.theme.space.at(1)};
+`;
