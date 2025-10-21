@@ -19,7 +19,7 @@ export default function LoginScreen() {
   }
   return (
     <Layout screen="Login">
-      <AuthInput
+      {/* <AuthInput
         label="Email"
         value={email}
         onChangeText={(text) => setEmail(text)}
@@ -27,7 +27,7 @@ export default function LoginScreen() {
         keyboardType="email-address"
         secureTextEntry
         autoCapitalize="none"
-      />
+      /> */}
       <AuthInput
         value={password}
         label={"Password"}
