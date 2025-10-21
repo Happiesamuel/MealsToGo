@@ -51,6 +51,14 @@ export default function AppNavigation() {
               },
               tabBarActiveTintColor: "tomato",
               tabBarInactiveTintColor: "gray",
+              contentStyle: {
+                backgroundColor: "red",
+                paddingTop: 0,
+                marginTop: 0,
+              },
+headerStyle:{
+
+},
               headerShown: false,
             })}
           >

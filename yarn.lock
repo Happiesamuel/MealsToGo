@@ -5371,6 +5371,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lottie-react-native@npm:~7.3.1":
+  version: 7.3.4
+  resolution: "lottie-react-native@npm:7.3.4"
+  peerDependencies:
+    "@lottiefiles/dotlottie-react": ^0.13.5
+    react: "*"
+    react-native: ">=0.46"
+    react-native-windows: ">=0.63.x"
+  peerDependenciesMeta:
+    "@lottiefiles/dotlottie-react":
+      optional: true
+    react-native-windows:
+      optional: true
+  checksum: 10c0/e91e24e3ff36200db068de1d8f14757adc412e0ce71209cde29f1f594b50307ff28342dcfb5b5995d509e0a9f78b9e6a1ab0e414b27bba94e6d99b175658168c
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
@@ -5448,6 +5465,7 @@ __metadata:
     expo-font: "npm:~14.0.8"
     expo-status-bar: "npm:~3.0.8"
     firebase: "npm:^12.4.0"
+    lottie-react-native: "npm:~7.3.1"
     react: "npm:19.1.0"
     react-native: "npm:0.81.4"
     react-native-gesture-handler: "npm:~2.28.0"

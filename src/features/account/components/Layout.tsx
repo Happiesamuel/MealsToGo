@@ -8,7 +8,18 @@ import {
   Title,
 } from "./AccountStyles";
 import { useNavigation } from "@react-navigation/native";
+import LottieView from "lottie-react-native";
+import styled from "styled-components/native";
 
+const AnimationWrapper = styled.View`
+  width: 100%;
+  position: absolute;
+  top: 30px;
+  height: 40%;
+  align-items: center;
+  justify-content: center;
+  padding: ${(props) => props.theme.space.at(2)};
+`;
 const Layout = ({
   children,
   screen,
@@ -20,6 +31,21 @@ const Layout = ({
   return (
     <AccountBackground resizeMode="cover">
       <AccountCover />
+      {screen === "Account" && (
+        <AnimationWrapper>
+          <LottieView
+            key="animation"
+            autoPlay
+            loop
+            resizeMode="cover"
+            style={{
+              width: 300,
+              height: 300,
+            }}
+            source={require("../../../../assets/Watermelon.json")}
+          />
+        </AnimationWrapper>
+      )}
       <AccountContent>
         <Title>Meals To Go</Title>
         <AccountContainer>{children}</AccountContainer>
