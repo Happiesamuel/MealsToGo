@@ -1,8 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { ResturantInfo } from "../../../model";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { loginRequest, registerRequest } from "./AuthService";
-import { UserCredential } from "firebase/auth";
+import { loginRequest, logoutRequest, registerRequest } from "./AuthService";
+import { User } from "firebase/auth";
+
+interface UserCredential {
+  user: User; // 👈 this is the actual Firebase user
+  providerId: string | null;
+  operationType: string;
+}
 
 const defaultValue = {
   user: null,
@@ -10,6 +16,7 @@ const defaultValue = {
   error: null,
   onLogin: () => {},
   onRegister: () => {},
+  onLogout: () => {},
   isAuthenicated: false,
 };
 
@@ -18,6 +25,7 @@ const AuthContext = createContext<{
   user: null | UserCredential;
   error: string | null;
   onLogin(email: string, password: string): void;
+  onLogout(): void;
   onRegister(email: string, password: string, repeatedPasword: string): void;
   isAuthenicated: boolean;
 }>(defaultValue);
@@ -61,6 +69,16 @@ export default function AuthContextProvider({
       setError(err.message);
     }
   }
+  async function onLogout() {
+    try {
+      setUser(null);
+      logoutRequest();
+    } catch (error) {
+      // const err = error as Error;
+      console.log(error);
+      // setError(err.message);
+    }
+  }
   return (
     <AuthContext.Provider
       value={{
@@ -70,6 +88,7 @@ export default function AuthContextProvider({
         onLogin,
         isAuthenicated: !!user,
         onRegister,
+        onLogout,
       }}
     >
       {children}

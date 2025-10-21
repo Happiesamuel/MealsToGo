@@ -1,10 +1,11 @@
-import { NavigationContainer } from "@react-navigation/native";
-import ResturantScreen from "../../features/resturants/screens/ResturantScreen";
 import MapScreen from "../../features/resturants/screens/MapScreen";
 import SettingsScreen from "../../features/resturants/screens/SettingsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import ResturauntNavigator from "../../features/resturants/components/ResturauntNavigator";
+import FavouritesContextProvider from "../../services/favourites/FavouriteContext";
+import LocationContextProvider from "../../services/location/location.context";
+import ResturantsContextProvider from "../../services/resturant/resturant.context";
 export default function AppNavigation() {
   const Tab = createBottomTabNavigator();
   type IconName = keyof typeof Ionicons.glyphMap;
@@ -39,20 +40,26 @@ export default function AppNavigation() {
     return focused ? icon.focus : icon.normal;
   }
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          const iconName = tabs(focused, route);
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "gray",
-        headerShown: false,
-      })}
-    >
-      <Tab.Screen name="Resturant" component={ResturauntNavigator} />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
+    <FavouritesContextProvider>
+      <LocationContextProvider>
+        <ResturantsContextProvider>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarIcon: ({ focused, color, size }) => {
+                const iconName = tabs(focused, route);
+                return <Ionicons name={iconName} size={size} color={color} />;
+              },
+              tabBarActiveTintColor: "tomato",
+              tabBarInactiveTintColor: "gray",
+              headerShown: false,
+            })}
+          >
+            <Tab.Screen name="Resturant" component={ResturauntNavigator} />
+            <Tab.Screen name="Map" component={MapScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+          </Tab.Navigator>
+        </ResturantsContextProvider>
+      </LocationContextProvider>
+    </FavouritesContextProvider>
   );
 }
