@@ -24,7 +24,7 @@ export default function FavouritesContextProvider({
   useEffect(
     function () {
       if (user) {
-        loadFavourites(user.user.uid);
+        loadFavourites(user.uid);
       }
     },
     [user]
@@ -32,7 +32,7 @@ export default function FavouritesContextProvider({
   useEffect(
     function () {
       if (user) {
-        storeFavourites(favourites, user.user.uid);
+        storeFavourites(favourites, user.uid);
       }
     },
     [favourites, user]

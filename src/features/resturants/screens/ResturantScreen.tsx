@@ -95,7 +95,7 @@ export default function ResturantScreen() {
         <FavouritesBar onDetail={navigation.navigate} favourites={favourites} />
       )}
       {isLoading && !err && (
-        <Spinner animating={true} size={30} color={"#D0421B"} />
+        <Spinner animating={true} size ={30} color={"#D0421B"} />
       )}
 
       {err && <Text>{err}</Text>}

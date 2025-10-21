@@ -2,7 +2,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { ResturantInfo } from "../../../model";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { loginRequest, logoutRequest, registerRequest } from "./AuthService";
-import { User } from "firebase/auth";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "../Firebase";
 
 interface UserCredential {
   user: User; // 👈 this is the actual Firebase user
@@ -22,7 +23,7 @@ const defaultValue = {
 
 const AuthContext = createContext<{
   isLoading: boolean;
-  user: null | UserCredential;
+  user: null | User;
   error: string | null;
   onLogin(email: string, password: string): void;
   onLogout(): void;
@@ -35,14 +36,14 @@ export default function AuthContextProvider({
   children: React.ReactNode;
 }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState<UserCredential | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<null | string>(null);
 
   async function onLogin(email: string, password: string) {
     try {
       setIsLoading(true);
       const req = await loginRequest(email, password);
-      setUser(req);
+      setUser(req.user);
       setIsLoading(false);
     } catch (error) {
       const err = error as Error;
@@ -50,6 +51,14 @@ export default function AuthContextProvider({
       setError(err.message);
     }
   }
+  useEffect(() => {
+    const auths = auth;
+    const unsubscribe = onAuthStateChanged(auths, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return unsubscribe;
+  }, []);
   async function onRegister(
     email: string,
     password: string,
@@ -61,7 +70,7 @@ export default function AuthContextProvider({
       }
       setIsLoading(true);
       const req = await registerRequest(email, password);
-      setUser(req);
+      setUser(req.user);
       setIsLoading(false);
     } catch (error) {
       const err = error as Error;

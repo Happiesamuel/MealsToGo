@@ -6,6 +6,7 @@ import ResturauntNavigator from "../../features/resturants/components/Resturaunt
 import FavouritesContextProvider from "../../services/favourites/FavouriteContext";
 import LocationContextProvider from "../../services/location/location.context";
 import ResturantsContextProvider from "../../services/resturant/resturant.context";
+import SettingsNavigator from "../../features/settings/screens/SettingsNavigator";
 export default function AppNavigation() {
   const Tab = createBottomTabNavigator();
   type IconName = keyof typeof Ionicons.glyphMap;
@@ -51,20 +52,13 @@ export default function AppNavigation() {
               },
               tabBarActiveTintColor: "tomato",
               tabBarInactiveTintColor: "gray",
-              contentStyle: {
-                backgroundColor: "red",
-                paddingTop: 0,
-                marginTop: 0,
-              },
-headerStyle:{
 
-},
               headerShown: false,
             })}
           >
             <Tab.Screen name="Resturant" component={ResturauntNavigator} />
             <Tab.Screen name="Map" component={MapScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen name="Settings" component={SettingsNavigator} />
           </Tab.Navigator>
         </ResturantsContextProvider>
       </LocationContextProvider>
