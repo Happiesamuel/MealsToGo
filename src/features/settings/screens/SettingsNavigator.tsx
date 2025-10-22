@@ -13,9 +13,8 @@ export default function SettingsNavigator() {
   return (
     <SettingsStack.Navigator
       screenOptions={{
-        // ...TransitionPresets.ModalPresentationIOS,
-        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         headerShown: false,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
       <SettingsStack.Screen name="Settings" component={SettingsScreen} />
