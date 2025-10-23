@@ -2,10 +2,13 @@ import { TouchableOpacity } from "react-native";
 import { SafeArea } from "../components/utility/safe-area.component";
 import { Avatar, List } from "react-native-paper";
 import { useAuth } from "../../../services/auth/AuthContext";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import styled from "styled-components/native";
 import { Text } from "../../../components/typography/text.component";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { useCallback, useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { User } from "firebase/auth";
 
 const SettingsItem = styled(List.Item)`
   padding: ${(props) => props.theme.space.at(3)};
@@ -23,16 +26,35 @@ export type ResturantStackParamList = {
 export default function SettingsScreen() {
   const navigation =
     useNavigation<StackNavigationProp<ResturantStackParamList, "Camera">>();
+  const [photo, setPhoto] = useState<string | null>(null);
   const { onLogout, user } = useAuth();
+  async function getProfilePic(current: User | null) {
+    if (!current) return;
+    const photoUri = await AsyncStorage.getItem(`${current.uid}-photo`); // ✅ await the Promise
+    setPhoto(photoUri);
+  }
+  useFocusEffect(
+    useCallback(() => {
+      getProfilePic(user);
+    }, [user])
+  );
   return (
     <SafeArea>
       <AvatarContainer>
         <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
-          <Avatar.Icon
-            icon="human"
-            style={{ backgroundColor: "#2182bd", borderRadius: "100%" }}
-            size={180}
-          />
+          {!photo ? (
+            <Avatar.Icon
+              icon="human"
+              style={{ backgroundColor: "#2182bd", borderRadius: "100%" }}
+              size={180}
+            />
+          ) : (
+            <Avatar.Image
+              style={{ backgroundColor: "#2182bd", borderRadius: "100%" }}
+              source={{ uri: photo }}
+              size={180}
+            />
+          )}
         </TouchableOpacity>
         <Text variant="label">{user?.email}</Text>
       </AvatarContainer>
