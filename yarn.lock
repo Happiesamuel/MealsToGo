@@ -4505,6 +4505,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"form-urlencoded@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "form-urlencoded@npm:1.5.1"
+  checksum: 10c0/dce7a03f1bc245fe88285ffdfc4e2d4a0d8133dc4fcfcf89a091d2b9644a32aba57781ebbe8a684be2d0f604ba76cb67b12f9c5cb4d64bfaf43889fd5ef98738
+  languageName: node
+  linkType: hard
+
 "freeport-async@npm:^2.0.0":
   version: 2.0.0
   resolution: "freeport-async@npm:2.0.0"
@@ -5459,6 +5466,7 @@ __metadata:
     react-native-svg: "npm:15.12.1"
     react-native-webview: "npm:13.15.0"
     react-native-worklets: "npm:^0.6.0"
+    stripe-client: "npm:^1.1.5"
     styled-components: "npm:^6.1.19"
     typescript: "npm:~5.9.2"
   languageName: unknown
@@ -7502,6 +7510,15 @@ __metadata:
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1"
   checksum: 10c0/b509231cbdee45064ff4f9fd73609e2bcc4e84a4d508e9dd0f31f70356473fde18abfb5838c17d56fb236f5a06b102ef115438de0600b749e818a35fbbc48c43
+  languageName: node
+  linkType: hard
+
+"stripe-client@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "stripe-client@npm:1.1.5"
+  dependencies:
+    form-urlencoded: "npm:^1.5.1"
+  checksum: 10c0/34adf2565ad5f77311b06e819453e93838510c78e7aa468e39dd2764b5f5c3a466db5844172d39efa92e8fb20bdb82dcac46bcea248a46d0ccc833e275edabfe
   languageName: node
   linkType: hard
 

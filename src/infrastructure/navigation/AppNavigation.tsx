@@ -7,6 +7,7 @@ import FavouritesContextProvider from "../../services/favourites/FavouriteContex
 import LocationContextProvider from "../../services/location/location.context";
 import ResturantsContextProvider from "../../services/resturant/resturant.context";
 import SettingsNavigator from "../../features/settings/screens/SettingsNavigator";
+import Checkout from "../../features/resturants/screens/Checkout";
 export default function AppNavigation() {
   const Tab = createBottomTabNavigator();
   type IconName = keyof typeof Ionicons.glyphMap;
@@ -21,6 +22,12 @@ export default function AppNavigation() {
       focus: "restaurant",
       slug: "restaurant",
       normal: "restaurant-outline",
+    },
+    {
+      name: "Checkout",
+      focus: "cart",
+      slug: "checkout",
+      normal: "cart-outline",
     },
     {
       name: "Map",
@@ -57,6 +64,7 @@ export default function AppNavigation() {
             })}
           >
             <Tab.Screen name="Resturant" component={ResturauntNavigator} />
+            <Tab.Screen name="Checkout" component={Checkout} />
             <Tab.Screen name="Map" component={MapScreen} />
             <Tab.Screen name="Settings" component={SettingsNavigator} />
           </Tab.Navigator>
