@@ -8,6 +8,7 @@ import LocationContextProvider from "../../services/location/location.context";
 import ResturantsContextProvider from "../../services/resturant/resturant.context";
 import SettingsNavigator from "../../features/settings/screens/SettingsNavigator";
 import Checkout from "../../features/resturants/screens/Checkout";
+import CartContextProvider from "../../services/cart/CartContext";
 export default function AppNavigation() {
   const Tab = createBottomTabNavigator();
   type IconName = keyof typeof Ionicons.glyphMap;
@@ -51,23 +52,25 @@ export default function AppNavigation() {
     <FavouritesContextProvider>
       <LocationContextProvider>
         <ResturantsContextProvider>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                const iconName = tabs(focused, route);
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-              tabBarActiveTintColor: "tomato",
-              tabBarInactiveTintColor: "gray",
+          <CartContextProvider>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                  const iconName = tabs(focused, route);
+                  return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: "tomato",
+                tabBarInactiveTintColor: "gray",
 
-              headerShown: false,
-            })}
-          >
-            <Tab.Screen name="Resturant" component={ResturauntNavigator} />
-            <Tab.Screen name="Checkout" component={Checkout} />
-            <Tab.Screen name="Map" component={MapScreen} />
-            <Tab.Screen name="Settings" component={SettingsNavigator} />
-          </Tab.Navigator>
+                headerShown: false,
+              })}
+            >
+              <Tab.Screen name="Resturant" component={ResturauntNavigator} />
+              <Tab.Screen name="Checkout" component={Checkout} />
+              <Tab.Screen name="Map" component={MapScreen} />
+              <Tab.Screen name="Settings" component={SettingsNavigator} />
+            </Tab.Navigator>
+          </CartContextProvider>
         </ResturantsContextProvider>
       </LocationContextProvider>
     </FavouritesContextProvider>

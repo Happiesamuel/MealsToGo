@@ -1,11 +1,14 @@
 import { View, Text } from "react-native";
 import React, { useState } from "react";
-import { RouteProp, useRoute } from "@react-navigation/native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { SafeArea } from "../components/utility/safe-area.component";
 import { ResturantInfo } from "../../../../model";
 import ResturantInfoCard from "../components/ResturantInfoCard";
-import { List } from "react-native-paper";
+import { Button, List } from "react-native-paper";
 import { ScrollView } from "react-native-gesture-handler";
+import styled from "styled-components/native";
+import { useCart } from "../../../services/cart/CartContext";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 type ResturantDetailRouteProp = RouteProp<
   {
@@ -14,11 +17,27 @@ type ResturantDetailRouteProp = RouteProp<
   },
   "ResturantDetail"
 >;
+const OrderButton = styled(Button).attrs({
+  color: "#2182BD",
+})`
+  padding: ${(props) => props.theme.space.at(2)};
+  color: #2182bd;
+  width: 80%;
+  align-self: center;
+  border-radius: 6px;
+`;
+
+export type ResturantStackParamList = {
+  Checkout: undefined;
+};
+
 export default function ResturantDetailScreen() {
   const route = useRoute<ResturantDetailRouteProp>();
+  const navigation =
+    useNavigation<StackNavigationProp<ResturantStackParamList, "Checkout">>();
   const { resturant } = route.params;
   const [expanded, setExpanded] = useState<string | null>(null);
-
+  const { addCart } = useCart();
   const accordion = [
     {
       title: "Breakfast",
@@ -67,6 +86,16 @@ export default function ResturantDetailScreen() {
           ))}
         </List.Section>
       </ScrollView>
+      <OrderButton
+        icon="cash"
+        mode="contained"
+        onPress={() => {
+          addCart({ item: "special", price: 1299 }, resturant);
+          navigation.navigate("Checkout");
+        }}
+      >
+        Order Special Only 12.99!
+      </OrderButton>
     </SafeArea>
   );
 }
