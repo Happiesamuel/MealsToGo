@@ -8,9 +8,8 @@ import ResturantInfoCard from "../components/ResturantInfoCard";
 
 export default function Checkout() {
   const { cart, resturant } = useCart();
-  console.log(cart, resturant);
 
-  if (!resturant)
+  if (!resturant || !cart.length)
     return (
       <SafeArea>
         <Text>No cart</Text>
