@@ -2663,6 +2663,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native/normalize-colors@npm:<0.73.0":
+  version: 0.72.0
+  resolution: "@react-native/normalize-colors@npm:0.72.0"
+  checksum: 10c0/741615ff23bead068a8a74e7b24fb2bcf074c9c4522f7329e8372597552eb26c3cdb6c0984dd564da9e5c3d1b61ec07b2e29f12a14f326d6e589480317dd833f
+  languageName: node
+  linkType: hard
+
 "@react-native/virtualized-lists@npm:0.81.4":
   version: 0.81.4
   resolution: "@react-native/virtualized-lists@npm:0.81.4"
@@ -2797,6 +2804,20 @@ __metadata:
   dependencies:
     "@sinonjs/commons": "npm:^3.0.0"
   checksum: 10c0/2e2fb6cc57f227912814085b7b01fede050cd4746ea8d49a1e44d5a0e56a804663b0340ae2f11af7559ea9bf4d087a11f2f646197a660ea3cb04e19efc04aa63
+  languageName: node
+  linkType: hard
+
+"@stripe/stripe-react-native@npm:0.50.3":
+  version: 0.50.3
+  resolution: "@stripe/stripe-react-native@npm:0.50.3"
+  peerDependencies:
+    expo: ">=46.0.9"
+    react: "*"
+    react-native: "*"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: 10c0/1269950f469f2acf2c389cb26f0465f9889fb0f4c874220cff32979e1ebfc8ca390f12150945217cdfb04976ee536951dffea4ef227166337aa2d7a15fa7bbc3
   languageName: node
   linkType: hard
 
@@ -3530,6 +3551,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"card-validator@npm:^10.0.0":
+  version: 10.0.3
+  resolution: "card-validator@npm:10.0.3"
+  dependencies:
+    credit-card-type: "npm:^10.0.2"
+  checksum: 10c0/eae0d8fa8f6f9e26aba74d82d093438350f93d08578f0ab548cf67d0f6a8adad1b0d08fa5b9868bb5b5a6cfc246e1c163bf046a07b2319d3c5275a28da86ea30
+  languageName: node
+  linkType: hard
+
 "chalk@npm:^2.0.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -3783,6 +3813,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"credit-card-type@npm:^10.0.2":
+  version: 10.1.0
+  resolution: "credit-card-type@npm:10.1.0"
+  checksum: 10c0/14f9cd573644a17ddd1bef67b9733358b5c0668ec2fefccba1d4b290334a11dce8aed9462ad662b54ccc31fd31e28f4139ef408066af8f131858868da8bf9f5a
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^7.0.3, cross-spawn@npm:^7.0.6":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
@@ -3934,6 +3971,17 @@ __metadata:
   version: 2.0.0
   resolution: "depd@npm:2.0.0"
   checksum: 10c0/58bd06ec20e19529b06f7ad07ddab60e504d9e0faca4bd23079fac2d279c3594334d736508dc350e06e510aba5e22e4594483b3a6562ce7c17dd797f4cc4ad2c
+  languageName: node
+  linkType: hard
+
+"deprecated-react-native-prop-types@npm:^4.0.0":
+  version: 4.2.3
+  resolution: "deprecated-react-native-prop-types@npm:4.2.3"
+  dependencies:
+    "@react-native/normalize-colors": "npm:<0.73.0"
+    invariant: "npm:^2.2.4"
+    prop-types: "npm:^15.8.1"
+  checksum: 10c0/04134ee58b7e1e46f055805ca390bd5ad88a8cf97cf44a120bf350ad02c3dbfab8539efa2e267740b3d72b1b5c623a55afa609ca417a69c91ad4626808294938
   languageName: node
   linkType: hard
 
@@ -5348,7 +5396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -5446,6 +5494,7 @@ __metadata:
     "@react-navigation/bottom-tabs": "npm:^7.4.7"
     "@react-navigation/native": "npm:^7.1.17"
     "@react-navigation/stack": "npm:^7.4.10"
+    "@stripe/stripe-react-native": "npm:0.50.3"
     "@types/camelize": "npm:^1.0.1"
     "@types/react": "npm:~19.1.10"
     camelize: "npm:^1.0.1"
@@ -5457,6 +5506,7 @@ __metadata:
     lottie-react-native: "npm:~7.3.1"
     react: "npm:19.1.0"
     react-native: "npm:0.81.4"
+    react-native-credit-card-input: "npm:^1.0.0"
     react-native-gesture-handler: "npm:~2.28.0"
     react-native-maps: "npm:1.20.1"
     react-native-paper: "npm:^5.14.5"
@@ -6271,7 +6321,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:^4.0.1":
+"object-assign@npm:^4.0.1, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: 10c0/1f4df9945120325d041ccf7b86f31e8bcc14e73d29171e37a7903050e96b81323784ec59f93f102ec635bcf6fa8034ba3ea0a8c7e69fa202b87ae3b6cec5a414
@@ -6606,6 +6656,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prop-types@npm:^15.8.1":
+  version: 15.8.1
+  resolution: "prop-types@npm:15.8.1"
+  dependencies:
+    loose-envify: "npm:^1.4.0"
+    object-assign: "npm:^4.1.1"
+    react-is: "npm:^16.13.1"
+  checksum: 10c0/59ece7ca2fb9838031d73a48d4becb9a7cc1ed10e610517c7d8f19a1e02fa47f7c27d557d8a5702bec3cfeccddc853579832b43f449e54635803f277b1c78077
+  languageName: node
+  linkType: hard
+
 "protobufjs@npm:^7.2.5":
   version: 7.5.4
   resolution: "protobufjs@npm:7.5.4"
@@ -6703,7 +6764,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.7.0":
+"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 10c0/33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
@@ -6721,6 +6782,29 @@ __metadata:
   version: 19.2.0
   resolution: "react-is@npm:19.2.0"
   checksum: 10c0/a63cb346aeced8ac0e671b0f9b33720d2906de02a066ca067075d871a5d4c64cdb328f495baf9b5842d5868c0d5edd1ce18465a7358b52f4b6aa983479c9bfa2
+  languageName: node
+  linkType: hard
+
+"react-native-credit-card-input@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "react-native-credit-card-input@npm:1.0.0"
+  dependencies:
+    card-validator: "npm:^10.0.0"
+    react-native-flip-card: "npm:^3.5.7"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/f56e8da314465acf9280b9ffa13cceba004ff28d326f93757bf1b9df5e4bec6cc2c7016f20b0080bafde5661845bdbc2c39e404617d6f232d6d0f401d9dd2a2a
+  languageName: node
+  linkType: hard
+
+"react-native-flip-card@npm:^3.5.7":
+  version: 3.5.7
+  resolution: "react-native-flip-card@npm:3.5.7"
+  dependencies:
+    deprecated-react-native-prop-types: "npm:^4.0.0"
+    prop-types: "npm:^15.8.1"
+  checksum: 10c0/2c2a054f8b0252e6bb2174eef8543d6a9fd81cee87a15e57da6f9924443d7d43f9cb331f7f5278796c7c47e4db4f3ac245122ffd844d6e05cf7cbd79b77c0075
   languageName: node
   linkType: hard
 
