@@ -47,7 +47,7 @@ const Layout = ({
         </AnimationWrapper>
       )}
       <AccountContent>
-        <Title>Meals To Go</Title>
+        <Title variant="label">Meals To Go</Title>
         <AccountContainer>{children}</AccountContainer>
         {screen !== "Account" && (
           <AccountButton mode="contained" onPress={() => navigation.goBack()}>

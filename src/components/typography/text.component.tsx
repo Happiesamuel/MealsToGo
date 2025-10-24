@@ -21,7 +21,6 @@ color:${theme.colors.text.error};
 const label = (theme: DefaultTheme) => `
 font-size:${theme.fontSizes.body};
 font-weight:${theme.fontWeights.medium};
-font-family:${theme.fonts.heading}
 `;
 const caption = (theme: DefaultTheme) => `
 font-size:${theme.fontSizes.caption};

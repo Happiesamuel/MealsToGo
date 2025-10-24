@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { colors } from "../../../infrastructure/theme/colors";
 import { Button, TextInput } from "react-native-paper";
+import { Text } from "../../../components/typography/text.component";
 
 export const AccountBackground = styled.ImageBackground.attrs({
   source: require("../../../../assets/bg.jpg"),
@@ -22,7 +23,7 @@ export const AccountContent = styled.View`
   align-items: center;
   gap: 15px;
 `;
-export const Title = styled.Text`
+export const Title = styled(Text)`
   font-size: 30px;
 `;
 export const AccountContainer = styled.View`

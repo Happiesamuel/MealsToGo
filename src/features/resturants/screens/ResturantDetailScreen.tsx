@@ -25,6 +25,7 @@ const OrderButton = styled(Button).attrs({
   width: 80%;
   align-self: center;
   border-radius: 6px;
+  margin-bottom: 20px;
 `;
 
 export type ResturantStackParamList = {
@@ -90,7 +91,7 @@ export default function ResturantDetailScreen() {
         icon="cash"
         mode="contained"
         onPress={() => {
-          addCart({ item: "special", price: 1299 }, resturant);
+          addCart({ item: "Special", price: 1299 }, resturant);
           navigation.navigate("Checkout");
         }}
       >
