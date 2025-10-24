@@ -37,7 +37,22 @@ export default function CartContextProvider({
     },
     [cart]
   );
-
+  useEffect(
+    function () {
+      if (user && user.uid) {
+        saveCart(resturant, cart, user.uid);
+      }
+    },
+    [resturant, cart, user]
+  );
+  useEffect(
+    function () {
+      if (user && user.uid) {
+        loadCart(user!.uid);
+      }
+    },
+    [user]
+  );
   function addCart(item: { item: string; price: number }, res: ResturantInfo) {
     if (!resturant || res.placeId !== resturant.placeId) {
       setResturant(res);
@@ -49,6 +64,33 @@ export default function CartContextProvider({
   function clearCart() {
     setCart([]);
     setResturant(null);
+  }
+
+  async function loadCart(uid: string) {
+    try {
+      const res = await AsyncStorage.getItem(`@cart-${uid}`);
+      const data = JSON.parse(res!);
+      setCart(data.cart || []);
+      setResturant(data.resturant || null);
+    } catch (error) {
+      console.log("error");
+    }
+  }
+
+  async function saveCart(
+    rst: ResturantInfo | null,
+    crt: { item: string; price: number }[],
+    uid: string
+  ) {
+    try {
+      const jsonVal = JSON.stringify({
+        resturant: rst,
+        cart: crt,
+      });
+      await AsyncStorage.setItem(`@cart-${uid}`, jsonVal);
+    } catch (error) {
+      console.log("error");
+    }
   }
 
   return (

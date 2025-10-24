@@ -1,5 +1,4 @@
 import MapScreen from "../../features/resturants/screens/MapScreen";
-import SettingsScreen from "../../features/resturants/screens/SettingsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import ResturauntNavigator from "../../features/resturants/components/ResturauntNavigator";
@@ -7,8 +6,8 @@ import FavouritesContextProvider from "../../services/favourites/FavouriteContex
 import LocationContextProvider from "../../services/location/location.context";
 import ResturantsContextProvider from "../../services/resturant/resturant.context";
 import SettingsNavigator from "../../features/settings/screens/SettingsNavigator";
-import Checkout from "../../features/resturants/screens/Checkout";
 import CartContextProvider from "../../services/cart/CartContext";
+import CheckoutNavigator from "../../features/checkout/CheckoutNavigator";
 export default function AppNavigation() {
   const Tab = createBottomTabNavigator();
   type IconName = keyof typeof Ionicons.glyphMap;
@@ -66,7 +65,7 @@ export default function AppNavigation() {
               })}
             >
               <Tab.Screen name="Resturant" component={ResturauntNavigator} />
-              <Tab.Screen name="Checkout" component={Checkout} />
+              <Tab.Screen name="Checkout" component={CheckoutNavigator} />
               <Tab.Screen name="Map" component={MapScreen} />
               <Tab.Screen name="Settings" component={SettingsNavigator} />
             </Tab.Navigator>
